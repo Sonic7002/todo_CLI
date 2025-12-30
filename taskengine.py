@@ -23,7 +23,7 @@ class Taskmanager:
             new = task_model(1, msg)
             self.data.append(new)
             return 1
-        identity = self.data[-1]["ID"] + 1
+        identity = max(task["ID"] for task in self.data)+1
         new = task_model(identity, msg)
         self.data.append(new)
         return identity
@@ -54,26 +54,13 @@ class Taskmanager:
     # Queries
 
     def list_all (self) -> list[dict]:
-        return self.data.copy()
+        return [task.copy() for task in self.data]
     
     def list_done(self) -> list[dict]:
-        done = []
-        for task in self.data():
-            if task["status"] == "complete":
-                done.append(task)
-        return done
-    
+        return [task.copy() for task in self.data if task["status"] == "complete"]
+
     def list_inprogress(self) -> list[dict]:
-        inprogress = []
-        for task in self.data():
-            if task["status"] == "in progress":
-                inprogress.append(task)
-        return inprogress
+        return [task.copy() for task in self.data if task["status"] == "in progress"]
     
     def list_todo(self) -> list[dict]:
-        todo = []
-        for task in self.data():
-            if task["status"] == "todo":
-                todo.append(task)
-        return todo
-    
+        return [task.copy() for task in self.data if task["status"] == "todo"]
