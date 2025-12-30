@@ -1,7 +1,7 @@
-# this model file contains template for all tasks
+# this file contains template for all tasks and a date time function
 from datetime import datetime
 
-def task(identity: int, msg: str) -> dict:
+def task_model(identity: int, msg: str) -> dict:
     new = {
             "ID": identity,
             "description": msg,
