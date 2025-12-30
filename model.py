@@ -1,3 +1,4 @@
+# this model file contains template for all tasks
 from datetime import datetime
 
 def task(identity: int, msg: str) -> dict:
