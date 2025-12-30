@@ -1,11 +1,16 @@
 # this task engine manages all operations on tasks
-from model import task
+from model import task, timelog
 
-def add(msg: str, data: list[dict]) -> list[dict]:
+def add(msg: str, data: list[dict]):
     if data == []:
         new = task(1, msg)
-        return data.append(new)
+        data.append(new)
     new = task(data[-1]["ID"] + 1, msg)
-    return data.append(new)
+    data.append(new)
 
+def update (identity: int, msg: str, data: list[dict]): 
+    for task in data:
+        if task["ID"] == identity:
+            task["description"] = msg
+            task["updated"] = timelog()
             

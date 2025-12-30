@@ -10,3 +10,6 @@ def task(identity: int, msg: str) -> dict:
             "updated": str(datetime.now().strftime('%H:%M:%S %d-%m-%Y'))
         }
     return new
+
+def timelog() -> str:
+    return str(datetime.now().strftime('%H:%M:%S %d-%m-%Y'))
