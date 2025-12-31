@@ -1,8 +1,8 @@
 # Todo CLI
 
-A simple and lightweight command-line todo manager built in Python.  
-Manage your tasks directly from the terminal with easy commands, inspired by `git`-style CLI tools.
-
+A simple and lightweight command-line todo manager built in Python.  \
+Manage your tasks directly from the terminal with easy commands, inspired by `git`-style CLI tools.\
+Project idea from: https://roadmap.sh/projects/task-tracker
 ---
 
 ## Features
