@@ -16,7 +16,7 @@ Project idea from: https://roadmap.sh/projects/task-tracker
 
 ---
 
-## Installation
+## Installation(Manual) (For development)
 
 **1. Clone the repository:**
 
@@ -42,8 +42,29 @@ pip install -e .
 ```bash
 todo --help
 ```
+---
+## Installation(Automatic) (For use)
 
-**5. Usage**
+**1. Create and activate a virtual environment:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # Linux/macOS
+.venv\Scripts\activate      # Windows
+```
+
+**2. Install the package:**
+```bash
+pip install git+https://github.com/Sonic7002/todo_CLI.git 
+```
+
+**3. Verify installation:**
+```bash
+todo --help
+```
+
+---
+## Usage
 
 ### The CLI supports the following commands:
 **Add a task**
@@ -85,7 +106,7 @@ todo list todo
 todo list in-progress
 ```
 ---
-# Notes
+## Notes
 
 The task data is stored in a local tasks.json file. This file is ignored in git to prevent committing runtime data.
 
@@ -94,7 +115,7 @@ If tasks.json does not exist, it will be created automatically.
 This CLI uses Python 3.11+ and requires no external dependencies other than the standard library.
 
 ---
-# Contributing
+## Contributing
 
 Contributions are welcome! Please:
 
@@ -104,7 +125,7 @@ Contributions are welcome! Please:
 
 - Submit a pull request with a clear description of your changes
 ---
-# Future Scope
+## Future Scope
 
 ### The todo-cli project provides a solid foundation for a terminal-based task manager. Potential future enhancements include:
 
@@ -137,7 +158,7 @@ Contributions are welcome! Please:
 - Prebuilt binaries for platforms without Python.
 ---
 
-# License
+## License
 
 This project is licensed under the MIT License.
 
