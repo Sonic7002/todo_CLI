@@ -1,15 +1,25 @@
-# this file contains template for all tasks and a date time function
 from datetime import datetime
 
 def timelog() -> str:
-    return str(datetime.now().strftime('%H:%M:%S %d-%m-%Y'))
+    """Return current date and time as 'HH:MM:SS DD-MM-YYYY'."""
+    return datetime.now().strftime('%H:%M:%S %d-%m-%Y')
+
 
 def task_model(identity: int, msg: str) -> dict:
-    new = {
-            "ID": identity,
-            "description": msg,
-            "status": "todo",
-            "createdAt": timelog(),
-            "updatedAt": timelog()
-        }
-    return new 
+    """
+    Create a new task dictionary.
+
+    Args:
+        identity (int): Unique task ID.
+        msg (str): Task description.
+
+    Returns:
+        dict: Task with ID, description, status, createdAt, updatedAt.
+    """
+    return {
+        "ID": identity,
+        "description": msg,
+        "status": "todo",
+        "createdAt": timelog(),
+        "updatedAt": timelog()
+    }
