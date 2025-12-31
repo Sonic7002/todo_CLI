@@ -17,3 +17,6 @@ __pycache__/
 
 # editable install folder
 *.egg-info/
+
+# runtime data
+tasks.json
