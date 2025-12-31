@@ -18,67 +18,70 @@ Manage your tasks directly from the terminal with easy commands, inspired by `gi
 
 ## Installation
 
-1. **Clone the repository:**
+**1. Clone the repository:**
 
 ```bash
 git clone <your-repo-url>
 cd todo_cli
+```
 
-    Create and activate a virtual environment:
+**2. Create and activate a virtual environment:**
 
+```bash
 python3 -m venv .venv
 source .venv/bin/activate   # Linux/macOS
 .venv\Scripts\activate      # Windows
+```
 
-    Install the package in editable mode:
-
+**3. Install the package in editable mode:**
+```bash
 pip install -e .
-
 ```
-2. **Verify installation:**
 
-```
+**4. Verify installation:**
+```bash
 todo --help
 ```
-3. **Usage**
+
+**5. Usage**
 
 ### The CLI supports the following commands:
 **Add a task**
-```
+```bash
 todo add "Buy groceries"
 ```
 **Update a task**
-```
+```bash
 todo update 1 "Buy groceries and lunch"
 ```
 **Delete a task**
-```
+```bash
 todo delete 1
 ```
 **Mark a task as in-progress**
-```
+```bash
 todo mark-in-progress 2
 ```
 **Mark a task as complete**
-```
+```bash
 todo mark-done 1
 ```
 ### List tasks
 
 **List all tasks**
-```
+```bash
 todo list
 ```
 **List only completed tasks**
-```
+```bash
 todo list done
 ```
 **List only pending tasks**
-```
+```bash
 todo list todo
 ```
-***List only in-progress tasks**
-```
+**List only in-progress tasks**
+```bash
 todo list in-progress
 ```
 ---
