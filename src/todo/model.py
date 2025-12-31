@@ -9,7 +9,7 @@ def task_model(identity: int, msg: str) -> dict:
             "ID": identity,
             "description": msg,
             "status": "todo",
-            "created": timelog(),
-            "updated": timelog()
+            "createdAt": timelog(),
+            "updatedAt": timelog()
         }
     return new 

@@ -3,10 +3,12 @@ from model import task_model, timelog
 
 class Taskmanager:
 
-    def __init__(self, data: list[dict]):
-        self.data = data
-
     # Internal
+
+    def _next_id(self) -> int:
+        if self.data == []:
+            return 1
+        return max(task["ID"] for task in self.data) + 1
 
     def _findbyid(self, identity: int) -> dict:
         if self.data == []:
@@ -15,23 +17,26 @@ class Taskmanager:
             if task["ID"] == identity:
                 return task
         raise ValueError("No tasks found with the given ID")
-        
+    
+    # parameterized constructor
+
+    def __init__(self, data: list[dict]):
+        self.data = data
+        self.identity = self._next_id()
+
     # Commands    
 
     def add(self, msg: str) -> int:
-        if self.data == []:
-            new = task_model(1, msg)
-            self.data.append(new)
-            return 1
-        identity = max(task["ID"] for task in self.data)+1
-        new = task_model(identity, msg)
+        task_id = self.identity
+        new = task_model(task_id, msg)
         self.data.append(new)
-        return identity
+        self.identity += 1
+        return task_id
 
     def update (self, identity: int, msg: str): 
         task = self._findbyid(identity)
         task["description"] = msg
-        task["updated"] = timelog()
+        task["updatedAt"] = timelog()
     
     def delete(self, identity: int):
         task = self._findbyid(identity)
@@ -39,17 +44,19 @@ class Taskmanager:
 
     def mark_inprogress(self, identity: int):
         task = self._findbyid(identity)
-        if task["status"] == "in progress":
+        if task["status"] == "in-progress":
             raise ValueError("Task is already in progress")
         if task["status"] == "complete":
             raise ValueError("Task is already complete")
-        task["status"] = "in progress"
+        task["status"] = "in-progress"
+        task["updatedAt"] = timelog()
 
     def mark_done(self, identity: int):
         task = self._findbyid(identity)
         if task["status"] == "complete":
             raise ValueError("Task is already complete")
         task["status"] = "complete"
+        task["updatedAt"] = timelog()
 
     # Queries
 
@@ -60,7 +67,7 @@ class Taskmanager:
         return [task.copy() for task in self.data if task["status"] == "complete"]
 
     def list_inprogress(self) -> list[dict]:
-        return [task.copy() for task in self.data if task["status"] == "in progress"]
+        return [task.copy() for task in self.data if task["status"] == "in-progress"]
     
     def list_todo(self) -> list[dict]:
         return [task.copy() for task in self.data if task["status"] == "todo"]
