@@ -1,11 +1,12 @@
 # this file contains the main method and ui logic
 import argparse
+import sys
 from todo.taskengine import Taskmanager
 from todo.filemanager import Filehandler
 
 def print_task(arr: list[dict]):
-    for index, item in enumerate(arr, start = 1):
-        print(f"{index}. [{item['ID']}] {item['description']} ({item['status']})")
+    for index, item in arr:
+        print(f"[{item['ID']}] {item['description']} ({item['status']})")
 
 def main():
     main_parser = argparse.ArgumentParser(prog = "todo")
@@ -66,7 +67,7 @@ def main():
             case "delete":
                 manager.delete(args.id)
                 store.save(data)
-                print("Task deleted sucessfully")
+                print("Task deleted successfully")
 
             case "mark-in-progress":
                 manager.mark_inprogress(args.id)
@@ -76,7 +77,7 @@ def main():
             case "mark-done":
                 manager.mark_done(args.id)
                 store.save(data)
-                print("Task marked completed")
+                print("Task marked complete")
                 
             case "list":
                 match(args.type):
@@ -100,3 +101,6 @@ def main():
 
     except ValueError as e:
         print(e)
+        sys.exit(1)
+    
+    sys.exit(0)

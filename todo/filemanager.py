@@ -11,7 +11,7 @@ class Filehandler:
             with open(self.name, 'r') as f:
                 data = json.load(f)
                 return data
-        except FileNotFoundError:
+        except (FileNotFoundError, json.JSONDecodeError):
             return []
     
     def save(self, data: list[dict]):
