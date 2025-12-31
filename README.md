@@ -101,6 +101,38 @@ Contributions are welcome! Please:
 
 - Submit a pull request with a clear description of your changes
 ---
+# Future Scope
+
+### The todo-cli project provides a solid foundation for a terminal-based task manager. Potential future enhancements include:
+
+**Persistent storage improvements:**
+
+- Support for databases like SQLite or PostgreSQL for larger task sets and multi-user support.
+
+**Advanced task features:**
+
+- Due dates, priorities, tags, and recurring tasks.
+
+- Task search and filtering by multiple criteria.
+
+**Enhanced CLI experience:**
+
+- Interactive mode for browsing and updating tasks.
+
+- Color-coded outputs for task status (e.g., red for overdue, green for completed).
+
+**Integration and automation:**
+
+- Sync with cloud services or calendars.
+
+- Notification system for reminders.
+
+**Packaging and distribution:**
+
+- Publish to PyPI for global installation.
+
+- Prebuilt binaries for platforms without Python.
+---
 
 # License
 
@@ -108,3 +140,4 @@ This project is licensed under the MIT License.
 
 ---
 ### Developed by: Srijan Kargupta
+### Copyright (c) 2025 Srijan Kargupta
