@@ -1,5 +1,5 @@
 # this task engine manages all operations on tasks
-from model import task_model, timelog
+from .model import task_model, timelog
 
 class Taskmanager:
 

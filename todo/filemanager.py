@@ -1,5 +1,5 @@
 # this file handles all file handling operations
-from taskengine import Taskmanager
+from .taskengine import Taskmanager
 import json
 
 class Filehandler:
@@ -16,4 +16,4 @@ class Filehandler:
     
     def save(self, data: list[dict]):
             with open(self.name, 'w') as f:
-                json.dump(data, f)
+                json.dump(data, f, indent = 4)
