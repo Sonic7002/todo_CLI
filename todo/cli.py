@@ -62,8 +62,8 @@ def main():
     parser = subparsers.add_parser("mark-done", help="Mark a task as complete", description="Mark a task as complete by its ID.")
     parser.add_argument("id", type=int, help="ID of the task to mark done.")
 
-    parser = subparsers.add_parser("list", help="List tasks", description="List tasks optionally filtered by status: done, todo, in-progress.")
-    parser.add_argument("type", nargs="?", choices=["done", "todo", "in-progress"], help="Optional filter for task status.")
+    parser = subparsers.add_parser("list", help="List tasks", description="List tasks optionally filtered by status: done, to-do, in-progress.")
+    parser.add_argument("type", nargs="?", choices=["done", "to-do", "in-progress"], help="Optional filter for task status.")
 
     args = main_parser.parse_args()
 
@@ -104,7 +104,7 @@ def main():
                         print_task(manager.list_all())
                     case "done":
                         print_task(manager.list_done())
-                    case "todo":
+                    case "to-do":
                         print_task(manager.list_todo())
                     case "in-progress":
                         print_task(manager.list_inprogress())

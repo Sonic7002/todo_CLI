@@ -99,7 +99,7 @@ todo list done
 ```
 **List only pending tasks**
 ```bash
-todo list todo
+todo list to-do
 ```
 **List only in-progress tasks**
 ```bash
